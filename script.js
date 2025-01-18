@@ -25,8 +25,6 @@ function createConfetti() {
     }
 }
 
-createConfetti();
-
 // Open Gift Function
 document.addEventListener('DOMContentLoaded', () => {
     const giftBox = document.querySelector('.gift-box');
@@ -38,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function openGift() {
         //Play audio
         enableAudioPlayback();
+        createConfetti();
         // Animate the gift box and text to disappear
         giftBox.style.animation = 'none';
         tapText.style.animation = 'none';
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Play Happy Birthday Jingle
 function enableAudioPlayback() {
-    const audio = new Audio('images/happy-birthday.mp3'); // Ensure the audio file is in the "audio" folder
+    const audio = new Audio('images/happy-birthday.mp3');
     audio.play()
         .then(() => {
             console.log("Audio playback started.");
@@ -99,7 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Scroll Down click event
 const scrollDownText = document.querySelector('.scroll-down');
+const factsSection = document.querySelector('.facts-section');
 scrollDownText.addEventListener('click', () => {
+    factsSection.style.display = 'block';
     document.querySelector('.facts-section').scrollIntoView({ behavior: 'smooth' });
     fetchRandomFact();  // Fetch the random fact when clicked
 });

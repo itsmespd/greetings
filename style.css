@@ -1,17 +1,22 @@
 /* General Styles */
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
     padding: 0;
-    font-family: "Poppins", serif;
+    font-family: "Poppins", sans-serif;
     display: flex;
+    flex-direction: column; /* Allow scrolling for tall screens */
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal overflow */
     background-size: cover;
     background-position: center;
 }
 
+/* Confetti Container */
 .confetti-container {
     position: absolute;
     top: 0;
@@ -21,79 +26,6 @@ body {
     pointer-events: none;
     z-index: 10;
     display: none;
-}
-
-/* Gift Box and Tap Text */
-.gift-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.gift-box {
-    font-size: 5rem;
-    animation: shake 1s infinite alternate, bounce 1s ease infinite;
-    cursor: pointer;
-}
-
-.tap-text {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    animation: zoomInOut 1.5s ease-in-out infinite;
-    cursor: pointer;
-}
-
-/* Animations */
-@keyframes shake {
-    0% { transform: translateX(-10px); }
-    100% { transform: translateX(10px); }
-}
-
-@keyframes bounce {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes zoomInOut {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.greeting-card {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    text-align: center;
-    max-width: 400px;
-    width: 90%;  /* Adjust width to be responsive */
-    display: none;
-}
-
-.photo-section img {
-    width: 50px;
-    height: 50px;
-    max-width: 25%;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.text-section h1 {
-    font-size: 2rem;
-    color: #333;
-}
-
-.text-section p {
-    font-size: 1.2rem;
-    color: #666;
 }
 
 .confetti {
@@ -116,120 +48,95 @@ body {
     }
 }
 
-/* General Carousel Styles */
+/* Gift Box and Tap Text */
+.gift-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.gift-box {
+    font-size: 5rem;
+    animation: zoomInOut 1.5s infinite alternate, bounce 1s ease infinite;
+    cursor: pointer;
+}
+
+.tap-text {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    animation: zoomInOut 1.5s ease-in-out infinite;
+    cursor: pointer;
+}
+
+/* Greeting Card */
+.greeting-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    width: 400px;
+    max-width: 400px; /* Prevent it from getting too wide */
+    overflow-y: auto; /* Add scrolling for content if needed */
+    display: none;
+}
+
+/* Carousel */
 .carousel {
     position: relative;
-    width: 100%;
-    max-width: 400px;  /* Adjust the max-width as needed */
-    height: 300px;  /* Set a height for the carousel */
+    width: 300px;
+    max-width: 100%;
+    height: 300px; /* Default height */
+    max-height: 40vh; /* Responsive height */
     margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Make sure images fill the carousel properly */
 .carousel-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* Ensure images fill the space */
+    object-fit: cover;
     opacity: 0;
     transform: scale(0.8);
     transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Active Image Styles */
 .carousel-image.active {
     opacity: 1;
     transform: scale(1);
 }
 
-/* Fade In and Pop Up Animation */
-@keyframes fadeInPop {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Responsive Design for Mobile Devices */
-@media (max-width: 768px) {
-    .greeting-card {
-        max-width: 95%;
-        padding: 15px;
-    }
-
-    .text-section h1 {
-        font-size: 1.8rem;
-    }
-
-    .text-section p {
-        font-size: 1rem;
-    }
-
-    .photo-section img {
-        width: 40px;
-        height: 40px;
-        max-width: 30%;
-    }
-}
-
-/* Even More Compact for Small Phones (max-width 480px) */
-@media (max-width: 480px) {
-    .greeting-card {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .text-section h1 {
-        font-size: 1.5rem;
-    }
-
-    .text-section p {
-        font-size: 0.9rem;
-    }
-
-    .photo-section img {
-        width: 35px;
-        height: 35px;
-        max-width: 40%;
-    }
-}
-
-/* "Scroll Down" Text */
+/* Scroll Down Text */
 .scroll-down {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 20px;
     cursor: pointer;
     animation: bounceUpDown 1s ease-in-out infinite;
 }
 
-@keyframes bounceUpDown {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-/* Facts Section (Initially hidden) */
+/* Facts Section */
 .facts-section {
     display: none;
     padding: 20px;
+    margin: 20px;
     text-align: center;
     background: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     margin-top: 50px;
+    width: 90%;
     max-width: 600px;
 }
 
@@ -243,7 +150,50 @@ body {
     color: #666;
 }
 
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
+/* Animations */
+@keyframes bounceUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(-10px); }
+    100% { transform: translateX(10px); }
+}
+
+@keyframes zoomInOut {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .greeting-card {
+        max-width: 85%;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .tap-text {
+        font-size: 1rem;
+    }
+
+    .scroll-down {
+        font-size: 1rem;
+    }
+    .facts-section {
+        max-width: 85%;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .facts-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .facts-section p {
+        font-size: 1rem;
+    }
 }
