@@ -8,6 +8,9 @@ const colorThemes = [
 const randomTheme = colorThemes[Math.floor(Math.random() * colorThemes.length)];
 document.body.style.background = `linear-gradient(45deg, ${randomTheme[0]}, ${randomTheme[1]}, ${randomTheme[2]})`;
 
+const textSectionH1 = document.querySelector('.textSectionHeader');
+textSectionH1.style.color = `${randomTheme[0]}`;
+
 // Confetti Animation
 function createConfetti() {
     const container = document.querySelector('.confetti-container');
@@ -40,7 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Animate the gift box and text to disappear
         giftBox.style.animation = 'none';
         tapText.style.animation = 'none';
-        giftContainer.style.transform = 'translate(-50%, -200%)'; // Move the gift box up
+        tapText.style.transition = 'opacity 1s ease';
+        giftBox.style.transition = 'opacity 1s ease';
+        giftContainer.style.transition = 'transform 1s ease, opacity 1s ease';
+        giftContainer.style.transform = 'translate(-50%, 100%)'; // Move the gift box down
         tapText.style.opacity = '0'; // Fade out the text
         giftBox.style.opacity = '0'; // Fade out the gift box
 

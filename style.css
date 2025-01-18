@@ -74,6 +74,10 @@ body {
     cursor: pointer;
 }
 
+.gift-container, .tap-text {
+    transition: transform 1s ease, opacity 1s ease;
+}
+
 /* Greeting Card */
 .greeting-card {
     background: rgba(255, 255, 255, 0.9);
