@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const greetingCard = document.querySelector('.greeting-card');
     const giftContainer = document.querySelector('.gift-container');
     const confettiContainer = document.querySelector('.confetti-container');
+    const scrollDownButton = document.querySelector('.scroll-down');
 
     function openGift() {
         //Play audio
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         greetingCard.style.display = 'block';
         greetingCard.style.opacity = '0';
         confettiContainer.style.display = 'block';
+        scrollDownButton.style.color = `${randomTheme[1]}`;
         setTimeout(() => {
             greetingCard.style.transition = 'opacity 2s ease-in-out';
             greetingCard.style.opacity = '1';

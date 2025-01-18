@@ -122,12 +122,17 @@ body {
     transform: scale(1);
 }
 
-/* Scroll Down Text */
+/* Scroll Down Button */
 .scroll-down {
     font-size: 1.2rem;
     margin-top: 20px;
     cursor: pointer;
     animation: bounceUpDown 1s ease-in-out infinite;
+    border: none;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: snow
 }
 
 /* Facts Section */
