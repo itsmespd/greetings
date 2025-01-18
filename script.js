@@ -112,15 +112,21 @@ function fetchRandomFact() {
 
     // Define the three API endpoints
     const apiEndpoints = [
-        'http://numbersapi.com/21/date?json',
-        'http://numbersapi.com/21/math?json',
-        'http://numbersapi.com/21/trivia?json'
+    'https://numbersapi.p.rapidapi.com/1/21/date?json',
+	'https://numbersapi.p.rapidapi.com/21/math?json',
+	'https://numbersapi.p.rapidapi.com/21/trivia?json'
     ];
 
     // Randomly select one endpoint
     const randomEndpoint = apiEndpoints[Math.floor(Math.random() * apiEndpoints.length)];
 
-    fetch(randomEndpoint)
+    fetch(randomEndpoint,{
+        method: 'GET',
+        headers: {
+            'x-rapidapi-host': 'numbersapi.p.rapidapi.com',
+            'x-rapidapi-key': '26f0969323msh1670cfaab398e41p1c9f75jsn8adaeb98de2b'
+        }
+    })
         .then(response => response.json())
         .then(data => {
             const fact = data.text;
