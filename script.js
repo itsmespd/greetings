@@ -2,7 +2,9 @@
 const colorThemes = [
     ['#FF5733', '#C70039', '#FFC300'],
     ['#33FF57', '#39C7C7', '#57C7FF'],
-    ['#FF33C7', '#C733FF', '#5733FF']
+    ['#FF33C7', '#C733FF', '#5733FF'],
+    ['#E87C66', '#E8A766', '#E8D466'],
+    ['#87C3E6', '#74D1A6', '#E6D274'] 
 ];
 
 const randomTheme = colorThemes[Math.floor(Math.random() * colorThemes.length)];
