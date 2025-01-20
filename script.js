@@ -11,7 +11,9 @@ const randomTheme = colorThemes[Math.floor(Math.random() * colorThemes.length)];
 document.body.style.background = `linear-gradient(45deg, ${randomTheme[0]}, ${randomTheme[1]}, ${randomTheme[2]})`;
 
 const textSectionH1 = document.querySelector('.textSectionHeader');
+const factsSectionH1 = document.querySelector('.factsSectionHeader');
 textSectionH1.style.color = `${randomTheme[0]}`;
+factsSectionH1.style.color = `${randomTheme[1]}`;
 
 // Confetti Animation
 function createConfetti() {
