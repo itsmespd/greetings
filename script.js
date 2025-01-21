@@ -111,10 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Scroll Down click event
 const scrollDownText = document.querySelector('.scroll-down');
 const factsSection = document.querySelector('.facts-section');
+const footerSection = document.querySelector('.footer-section');
 scrollDownText.addEventListener('click', () => {
     factsSection.style.display = 'block';
     document.querySelector('.facts-section').scrollIntoView({ behavior: 'smooth' });
     fetchRandomFact();  // Fetch the random fact when clicked
+    footerSection.style.display = 'block';
 });
 
 // Fetch Random Fact about January 21st from API
@@ -124,9 +126,19 @@ function fetchRandomFact() {
 
     // Define the three API endpoints
     const apiEndpoints = [
-    'https://numbersapi.p.rapidapi.com/1/21/date?json',
-	'https://numbersapi.p.rapidapi.com/21/math?json',
-	'https://numbersapi.p.rapidapi.com/21/trivia?json'
+	'https://jokes-always.p.rapidapi.com/family',
+    'https://jokes-always.p.rapidapi.com/animal',
+    'https://jokes-always.p.rapidapi.com/clean',
+    'https://jokes-always.p.rapidapi.com/relationship',
+    'https://jokes-always.p.rapidapi.com/office',
+    'https://jokes-always.p.rapidapi.com/food',
+    'https://jokes-always.p.rapidapi.com/dark',
+    'https://jokes-always.p.rapidapi.com/common',
+    'https://jokes-always.p.rapidapi.com/doctor',
+    'https://jokes-always.p.rapidapi.com/engineer'
+
+    /*'https://numbersapi.p.rapidapi.com/21/math?json',
+	'https://numbersapi.p.rapidapi.com/21/trivia?json'*/
     ];
 
     // Randomly select one endpoint
@@ -135,13 +147,13 @@ function fetchRandomFact() {
     fetch(randomEndpoint,{
         method: 'GET',
         headers: {
-            'x-rapidapi-host': 'numbersapi.p.rapidapi.com',
+            'x-rapidapi-host': 'jokes-always.p.rapidapi.com',
             'x-rapidapi-key': '26f0969323msh1670cfaab398e41p1c9f75jsn8adaeb98de2b'
         }
     })
         .then(response => response.json())
         .then(data => {
-            const fact = data.text;
+            const fact = data.data;
             factText.textContent = fact;
             factsSection.style.display = 'block'; // Show the facts section after data is fetched
         })

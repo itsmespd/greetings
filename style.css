@@ -158,6 +158,19 @@ body {
     font-size: 1.2rem;
 }
 
+.footer-section  {
+    display: none;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    width: 90%;
+    max-width: 600px;
+}
+
 /* Animations */
 @keyframes bounceUpDown {
     0% { transform: translateY(0); }
@@ -202,6 +215,15 @@ body {
     }
 
     .facts-section p {
+        font-size: 1rem;
+    }
+    .footer-section {
+        max-width: 85%;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .footer-section p {
         font-size: 1rem;
     }
 }
