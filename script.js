@@ -117,6 +117,7 @@ scrollDownText.addEventListener('click', () => {
     document.querySelector('.facts-section').scrollIntoView({ behavior: 'smooth' });
     fetchRandomFact();  // Fetch the random fact when clicked
     footerSection.style.display = 'block';
+    document.querySelector('.footer-section').scrollIntoView({ behavior: 'smooth' });
 });
 
 // Fetch Random Fact about January 21st from API
